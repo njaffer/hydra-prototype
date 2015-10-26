@@ -29,6 +29,7 @@ module MiD
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.web_console.whitelisted_ips = '141.211.43.195'
+    config.relative_url_root = '/demo01'
     config.action_controller.relative_url_root = '/demo01'
     config.minter_statefile = '/tmp/njaffer-minter-state'
     config.active_record.raise_in_transactional_callbacks = true
