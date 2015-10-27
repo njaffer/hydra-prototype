@@ -21,16 +21,25 @@
     </div>
 
     <div class="row">
-
-      <fieldset class="col-md-5">
-      
-
-      </fieldset>	      
  <fieldset class="col-md-5">
       <button type="button" data-toggle="browse-everything" data-route="<%=browse_everything_engine.root_path%>"
-  data-target=".search-form" class="btn btn-large btn-success" id="browse">Cloud Browse</button>
-      </fieldset>
+  data-target="new_rackham" class="btn btn-large btn-success" id="browse">Cloud Browse</button>
+
+ </fieldset>
 
     </div>    
+
+     <p id="status">0 items selected</p>
+							    </div>
+    <script>
+	      // Update the count in #status element when user selects files.
+	        $(document).ready(function() {
+			    $('#browse-btn').browseEverything()
+			          .done(function(data) {
+					          $('#status').html(data.length.toString() + " <%= t('sufia.upload.browse_everything.files_selected')%>")
+						          $('#submit-btn').html("Submit "+data.length.toString() + " selected files")
+							        })
+								  });
+							  </script>
   </fieldset>
 <% end %>
